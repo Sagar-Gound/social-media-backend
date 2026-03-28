@@ -10,9 +10,9 @@
     "start": "node dist/server.js",
     "lint": "eslint src/ --ext .ts",
     "format": "prettier --write \"src/**/*.ts\"",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio"
+    "prisma:generate": "node --env-file=.env.local node_modules/prisma/build/index.js generate",
+    "prisma:migrate": "node --env-file=.env.local node_modules/prisma/build/index.js migrate dev",
+    "prisma:studio": "node --env-file=.env.local node_modules/prisma/build/index.js studio"
   },
   "keywords": [],
   "author": "",

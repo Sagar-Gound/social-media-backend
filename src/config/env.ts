@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 // Load .env file based on NODE_ENV
-const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env';
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.local';
 dotenv.config({ path: path.resolve(process.cwd(), envFile) });
 
 const envSchema = z.object({
@@ -11,7 +11,7 @@ const envSchema = z.object({
   PORT: z.coerce.number().default(5000),
 
   DATABASE_URL: z.string().min(1, 'DATABASE_URL must be a valid connection string'),
-  // DIRECT_URL: z.string().url('DIRECT_URL must be a valid connection string'),
+  DIRECT_URL: z.string().min(1, 'DIRECT_URL must be a valid connection string'),
 
   JWT_ACCESS_SECRET: z.string().min(10, 'JWT_ACCESS_SECRET must be at least 10 characters'),
   JWT_REFRESH_SECRET: z.string().min(10, 'JWT_REFRESH_SECRET must be at least 10 characters'),
