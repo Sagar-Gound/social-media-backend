@@ -98,7 +98,7 @@ export const logout = asyncWrapper(async (req: Request, res: Response) => {
 export const me = asyncWrapper(async (req: Request, res: Response) => {
   const userId = (req as Request & { userId: string }).userId;
 
-  const { prisma } = await import('../../config');
+  const { prisma } = await import('@/config');
   const user = await prisma.user.findUnique({ where: { id: userId } });
 
   if (!user) {

@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
 import jwt, { SignOptions } from 'jsonwebtoken';
 import { OAuth2Client } from 'google-auth-library';
-import { prisma, env } from '../../config';
-import { AppError } from '../../shared';
+import { prisma, env } from '@/config';
+import { AppError } from '@/shared';
 import { RegisterInput, LoginInput } from './auth.validation';
 
 const googleClient = new OAuth2Client(env.GOOGLE_CLIENT_ID);

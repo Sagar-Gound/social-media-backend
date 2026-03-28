@@ -3,13 +3,13 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
-import { env } from './config';
-import { errorHandler } from './shared';
+import { env } from '@/config';
+import { errorHandler } from '@/shared';
 
 // Module routers
-import { authRouter } from './modules/auth';
-import { userRouter } from './modules/user';
-import { postRouter } from './modules/post';
+import { authRouter } from '@/modules/auth';
+import { userRouter } from '@/modules/user';
+import { postRouter } from '@/modules/post';
 
 const app = express();
 
